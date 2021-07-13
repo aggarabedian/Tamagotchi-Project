@@ -9,6 +9,9 @@
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
   crossorigin="anonymous"></script>
   <link rel="stylesheet" href="styles/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
   <script src="scripts/app.js" defer></script>
   <title>a blob's life</title>
 </head>
@@ -20,16 +23,18 @@
     <div class="status-bar-name">Name: </div>
     <div class="status-bar-age">Age: </div>
   </div>
-  <aside class="meter-box">
-    <div class="meter-box-hungry">Hunger</div>
-    <div class="meter-box-bored">Boredom</div>
-    <div class="meter-box-sleepy">Sleepiness</div>
-  </aside>
-  <section class="blob-box">
-      <div class="blob-box-inner"></div>
-      <div class="blob-box-blob"></div>
-    
-  </section>
-
+  <div class="game-box">
+    <aside class="meter-box">
+      <div class="meter-box-hungry">Hunger</div>
+      <div class="meter-box-bored">Boredom</div>
+      <div class="meter-box-sleepy">Sleepiness</div>
+    </aside>
+    <section class="blob-box">
+        <div class="blob-box-inner">
+          <div class="blob-box-blob"></div>
+        </div>
+        
+    </section>
+  </div>
 </body>
 </html>
