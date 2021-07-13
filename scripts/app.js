@@ -21,6 +21,9 @@ At year 6, a UFO will appear and beam the blob up, ending the game.
 If the user fails to keep any meter from filling up all the way, the blob will get a sad face and shrink to nothing; "Your blob has melted away -- better luck next time!"; 'new game' button appears.
 */
 
+/* More Details */
+
+
 
 /* Icebox */
 
