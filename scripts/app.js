@@ -70,21 +70,27 @@ const blob = {
   overTime() {
     blob.time--;
     $(".game-clock").text(`Time left this year: ${blob.time}s`);
-    if (blob.time <= 0) {
+    if (blob.time = 0) {
       blob.age++;
-      blob.setUpRound();
+      blob.resetRound();
     }
   },
 
-  setUpRound() {
+  resetRound() {
     clearInterval(blob.timer);
     if (blob.age === 5) {
       //game over
       console.warn("Game Over");
+    } else if (blob.age < 5) {
+      blob.time = 30;
     }
   },
 
-
+  increaseMeters() {
+    blob.boredom++;
+    blob.sleepiness++;
+    blob.hunger++;
+  }
 
   feedBlob(event) {
     if (blob.hunger < 10 && blob.hunger > 0) {
