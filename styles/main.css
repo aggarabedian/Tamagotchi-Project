@@ -96,6 +96,19 @@ aside {
   background-color: rgb(53, 53, 53);
   border-radius: 10px;
 }
+/* 
+.blob-box {
+  border: 3px solid black;
+  height: 70vh;
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin: 20px;
+  background-color: rgb(53, 53, 53);
+  border-radius: 10px;
+} */
 
 .blob-box-inner {
   border: 3px solid black;
@@ -115,4 +128,13 @@ aside {
   border-radius: 50%;
   margin: 50px;
   background-color: whitesmoke;
+}
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+button {
+  padding: 10px;
 }

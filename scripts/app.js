@@ -23,7 +23,16 @@ If the user fails to keep any meter from filling up all the way, the blob will g
 
 /* More Details */
 
-
+/* 
+  - When the user navigates to the page, there will be a brief description of the game in the blob box, and a box with a prompt for a name for the blob. 
+  - Once the user enters a name and clicks submit, the box contents will clear, and a blob will appear.
+  - A button also appears which is to feed the blob 3 times.
+  - Once that happens, the blog gets a face, and 2 more buttons appear.
+  - Also, the 3 meters appear on the left at 1, and start creeping up every 2 seconds.
+  - The time is running in the background, and after every 30 seconds, the age goes up 1.
+  
+  
+  */
 
 /* Icebox */
 
