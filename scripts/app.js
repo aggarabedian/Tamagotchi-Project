@@ -51,8 +51,37 @@ const blob = {
   sleepiness: 3,
   
   startGame(event) {
-    
-  }
+    const $getName = $(".name-select");
+    blob.name = $getName.val();
+    $modalHide.css("display", "none");
+    $blobAge.text(`Age: ${blob.age}`);
+    $blobName.text(`Name: ${blob.name}`);
+    $gameClock.text(`Time left this year: ${blob.time}s`);
+  },
+
+  feedBlob(event) {
+    if (blob.hunger < 10 && blob.hunger > 0) {
+      blob.hunger--;
+      $hungerNumber.text(`Hunger: ${blob.hunger}`);
+      $hungerMeter.css("width", `${blob.hunger}0%`);
+    }
+  },
+
+  playBlob(event) {
+    if (blob.boredom < 10 && blob.boredom > 0) {
+      blob.boredom--;
+      $boredNumber.text(`Boredom: ${blob.boredom}`);
+      $boredMeter.css("width", `${blob.boredom}0%`);
+    }
+  },
+
+  sleepBlob(event) {
+    if (blob.sleepiness < 10 && blob.sleepiness > 0) {
+      blob.sleepiness--;
+      $sleepyNumber.text(`Sleepiness: ${blob.sleepiness}`);
+      $sleepyMeter.css("width", `${blob.sleepiness}0%`);
+    }
+  },
 };
 
 
@@ -63,22 +92,19 @@ const feedBlob = function () {
 
 const $blobName = $(".status-bar-name");
 const $blobAge = $(".status-bar-age");
-const $boredMeter = $(".meter-box-bored");
-const $hungerMeter = $(".meter-box-hungry");
-const $sleepyMeter = $(".meter-box-sleepy");
+const $hungerMeter = $(".meter-box-hungry-fill");
+const $hungerNumber = $(".meter-box-label-hungry");
+const $boredMeter = $(".meter-box-bored-fill");
+const $boredNumber = $(".meter-box-label-bored");
+const $sleepyMeter = $(".meter-box-sleepy-fill");
+const $sleepyNumber = $(".meter-box-label-sleepy");
 const $modalHide = $(".modal-close");
 const $gameClock = $(".game-clock")
 
 
 // hides the modal and modal overlay at the start of the game
-$(".name-select-button").on("click", function(){
-  const $getName = $(".name-select");
-  blob.name = $getName.val();
-  $modalHide.css("display", "none");
-  $blobAge.text(`Age: ${blob.age}`);
-  $blobName.text(`Name: ${blob.name}`);
-  $gameClock.text(`Time left this year: ${blob.time}`);
-});
+$(".name-select-button").on("click", blob.startGame);
 
-$(".button-food").on("click", feedBlob);
-
+$(".button-food").on("click", blob.feedBlob);
+$(".button-play").on("click", blob.playBlob);
+$(".button-sleep").on("click", blob.sleepBlob);
