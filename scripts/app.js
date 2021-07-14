@@ -43,12 +43,14 @@ If the user fails to keep any meter from filling up all the way, the blob will g
 */
 
 const blob = {
-  time: 30,
+  
   name: "",
   age: 0,
   hunger: 5,
   boredom: 3,
   sleepiness: 3,
+  time: 30,
+  timer: null,
   
   startGame(event) {
     const $getName = $(".name-select");
@@ -57,6 +59,20 @@ const blob = {
     $blobAge.text(`Age: ${blob.age}`);
     $blobName.text(`Name: ${blob.name}`);
     $gameClock.text(`Time left this year: ${blob.time}s`);
+    blob.startTimer();
+    
+  },
+
+  startTimer() {
+    blob.time = setInterval(blob.overTime, 1000);
+  },
+
+  overTime() {
+    blob.time--;
+    $(".gameClock").text(`Time left this year: ${blob.time}s`);
+    if (blob.time <= 0) {
+      blob.age++;
+    }
   },
 
   feedBlob(event) {
@@ -82,13 +98,15 @@ const blob = {
       $sleepyMeter.css("width", `${blob.sleepiness}0%`);
     }
   },
+
+
 };
 
-
+// blob.startTimer();
 // const timer = setInterval(logEverySecond, 2000);
-const feedBlob = function () {
+/* const feedBlob = function () {
   blob.hunger = blob.hunger--;
-};
+}; */
 
 const $blobName = $(".status-bar-name");
 const $blobAge = $(".status-bar-age");
@@ -104,7 +122,6 @@ const $gameClock = $(".game-clock")
 
 // hides the modal and modal overlay at the start of the game
 $(".name-select-button").on("click", blob.startGame);
-
 $(".button-food").on("click", blob.feedBlob);
 $(".button-play").on("click", blob.playBlob);
 $(".button-sleep").on("click", blob.sleepBlob);
