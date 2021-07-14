@@ -65,3 +65,4 @@ const $blobAge = $(".status-bar-age");
 const $boredMeter = $(".meter-box-bored");
 const $hungerMeter = $(".meter-box-hungry");
 const $sleepyMeter = $(".meter-box-sleepy");
+
