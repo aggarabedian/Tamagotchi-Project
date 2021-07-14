@@ -42,27 +42,50 @@ If the user fails to keep any meter from filling up all the way, the blob will g
 - Blob dances
 */
 
-const blobGame = {
+const blob = {
   time: 0,
-  startGame (event) {
-    console.warn("Game Has Started");
+  name: "",
+  age: 0,
+  hunger: 5,
+  boredom: 3,
+  sleepiness: 3,
+  feedBlob(event) {
 
-  },
+  }
   
 };
 
-
-const logEverySecond = function () {
+/* const logEverySecond = function () {
   console.log("Hello");
   console.log("======");
-}
+} */
 /* const timer = setInterval(logEverySecond, 2000); */
 
-
-
-const $blobName = $("status-bar-name");
+const $blobName = $(".status-bar-name");
 const $blobAge = $(".status-bar-age");
 const $boredMeter = $(".meter-box-bored");
 const $hungerMeter = $(".meter-box-hungry");
 const $sleepyMeter = $(".meter-box-sleepy");
+const $modalHide = $(".modal-close");
 
+/* $(".name-select-button").click(function(){
+  const name = $(".name-select").val();
+  console.log(name);
+}); */
+
+/* const startGame = function () {
+  $modalHide.css("display", "none");
+}; */
+
+
+
+// hides the modal and modal overlay at the start of the game
+$(".name-select-button").on("click", function(){
+  const $getName = $(".name-select");
+  blob.name = $getName.val();
+  $modalHide.css("display", "none");
+  $blobAge.text(`Age: ${blob.age}`);
+  $blobName.text(`Name: ${blob.name}`);
+});
+
+/* $(".button-food").on("click", blob.hunger--); */
