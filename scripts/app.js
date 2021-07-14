@@ -29,7 +29,7 @@ If the user fails to keep any meter from filling up all the way, the blob will g
   - A button also appears which is to feed the blob 3 times.
   - Once that happens, the blog gets a face, and 2 more buttons appear.
   - Also, the 3 meters appear on the left at 1, and start creeping up every 2 seconds.
-  - The time is running in the background, and after every 30 seconds, the age goes up 1.
+  - After every 30 seconds, the age goes up 1.
   
   
   */
@@ -42,3 +42,26 @@ If the user fails to keep any meter from filling up all the way, the blob will g
 - Blob dances
 */
 
+const blobGame = {
+  time: 0,
+  startGame (event) {
+    console.warn("Game Has Started");
+
+  },
+  
+};
+
+
+const logEverySecond = function () {
+  console.log("Hello");
+  console.log("======");
+}
+/* const timer = setInterval(logEverySecond, 2000); */
+
+
+
+const $blobName = $("status-bar-name");
+const $blobAge = $(".status-bar-age");
+const $boredMeter = $(".meter-box-bored");
+const $hungerMeter = $(".meter-box-hungry");
+const $sleepyMeter = $(".meter-box-sleepy");
