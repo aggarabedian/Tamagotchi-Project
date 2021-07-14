@@ -90,7 +90,7 @@ const blob = {
     blob.boredom++;
     blob.sleepiness++;
     blob.hunger++;
-  }
+  },
 
   feedBlob(event) {
     if (blob.hunger < 10 && blob.hunger > 0) {
