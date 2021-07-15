@@ -41,7 +41,7 @@ If the user fails to keep any meter from filling up all the way, the blob will g
 - Change blob appearance at age 1 and 3 - done
 - When grown to age 1 and 3, meters fill faster - done
 - Game over if any metric reaches 10 - done
-- Make blob bounce away if player loses
+- Make blob dies if player loses - done
 - Make blob get beamed up if player wins
 */
 
@@ -65,7 +65,7 @@ const blob = {
   hunger: 2,
   boredom: 2,
   sleepiness: 2,
-  time: 30,
+  time: 20,
   
   
   startGame(event) {
@@ -97,7 +97,7 @@ const blob = {
 
     if (blob.time === 0 && blob.age <= 4) {
       blob.age++;
-      blob.time = 30;
+      blob.time = 20;
       blob.updateAge();
       blob.blobGrow();
     }; 
@@ -124,12 +124,15 @@ const blob = {
     };
   },
 
-  
+
   gameOver() {
       if (blob.hunger === 10 || blob.boredom === 10 || blob.sleepiness === 10) {
       console.warn("Game Over");
       clearInterval(blob.timer);
       clearInterval(blob.meterTimer);
+      $theBlob.css("background-image", "url(/images/gameover.png)");
+      $theBlob.css("width", "200px");
+      $theBlob.css("height", "200px");
     }
   },
 
@@ -142,6 +145,7 @@ blobGrow() {
     console.log("blob grows");
     $theBlob.css("width", "150px");
     $theBlob.css("height", "150px");
+    $theBlob.css("background-image", "url(/images/blob1.png)");
   } else if (blob.age === 3) {
     clearInterval(blob.meterTimer);
     this.meterTimer = setInterval(blob.increaseMeters, 800);
@@ -149,6 +153,7 @@ blobGrow() {
     console.log("blow grows again");
     $theBlob.css("width", "200px");
     $theBlob.css("height", "200px");
+    $theBlob.css("background-image", "url(/images/blob2.png)");
   }
 },
 
@@ -157,6 +162,9 @@ blobAscends() {
     console.warn("Beam me up, blobby.");
     clearInterval(blob.timer);
     clearInterval(blob.meterTimer);
+    $theBlob.css("background-image", "url(/images/ufo.png)");
+    $theBlob.css("width", "425px");
+    $theBlob.css("height", "425px");
 
 
   }
