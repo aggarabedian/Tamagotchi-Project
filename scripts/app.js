@@ -115,15 +115,6 @@ const blob = {
     this.meterTimer = setInterval(blob.increaseMeters, 2000);
   },
 
-/*   increaseMeterSpeed() {
-  if (blob.age > 0 && blob.age < 3) {
-      console.warn("Increasing Speed to 1");
-      this.meterTimer = setInterval(blob.increaseMeters, 1000);
-    } else if (blob.age === 4) {
-      console.warn("Increasing Speed to 2");
-      this.meterTimer = setInterval(blob.increaseMeters, 500);
-    }
-  }, */
 
   increaseMeters() { 
     if (blob.hunger < 10 && blob.boredom < 10 && blob.sleepiness < 10) {
@@ -133,6 +124,7 @@ const blob = {
     };
   },
 
+  
   gameOver() {
       if (blob.hunger === 10 || blob.boredom === 10 || blob.sleepiness === 10) {
       console.warn("Game Over");
@@ -142,7 +134,6 @@ const blob = {
   },
 
 
-// When age = 1, blob grows and meters fill faster  
 blobGrow() {
   if (blob.age === 1) {
     clearInterval(blob.meterTimer);
@@ -171,15 +162,6 @@ blobAscends() {
   }
 },
 
-// When age = 3, blob grows again and meters fill faster still
-/* blobGrowTwo() {
-  if (blob.age === 3) {
-    console.log("blow grows again");
-    $theBlob.css("width", "200px");
-    $theBlob.css("height", "200px");
-  }
-
-}, */
 
   feedBlob(event) {
     if (blob.hunger < 10 && blob.hunger > 0) {
