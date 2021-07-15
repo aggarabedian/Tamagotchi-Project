@@ -163,7 +163,8 @@ blobGrow() {
 
 blobAscends() {
   if (blob.age === 5) {
-    console.warn("Beam me up, Scotty.");
+    console.warn("Beam me up, blobby.");
+    
   }
 },
 
