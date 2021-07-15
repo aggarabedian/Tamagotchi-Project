@@ -164,7 +164,10 @@ blobGrow() {
 blobAscends() {
   if (blob.age === 5) {
     console.warn("Beam me up, blobby.");
-    
+    clearInterval(blob.timer);
+    clearInterval(blob.meterTimer);
+
+
   }
 },
 
