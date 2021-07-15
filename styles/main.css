@@ -175,6 +175,11 @@ aside {
   border-radius: 50%;
   margin: 50px;
   background-color: rgb(243, 115, 226);
+  -webkit-animation-name: blob-bounce;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-timing-function: cubic-bezier(0.5, 0.05, 1, 0.5);
+  -webkit-animation-iteration-count: infinite;
 }
 
 .buttons {
@@ -235,4 +240,9 @@ button {
 
 .modal-close {
   display: show;
+}
+
+@keyframes blob-bounce {
+  from { transform: translate3d(0, 0, 0);}
+  to { transform: translate3d(0, 50px, 0);}
 }

@@ -36,17 +36,14 @@ If the user fails to keep any meter from filling up all the way, the blob will g
 
 
 /* MVP still to do
-- Age must go up by 1 after every 30 seconds
-- Metrics need to go up over time 
-- When grown to age 1 and 3, meters fill faster
-- Game over if any metric reaches 10
-- Change blob appearance at age 1 and 3
-- Make blob move (beamed up at end of game)
+- Age must go up by 1 after every 30 seconds - done
+- Metrics need to go up over time  - done
+- Change blob appearance at age 1 and 3 - done
+- When grown to age 1 and 3, meters fill faster - done
+- Game over if any metric reaches 10 - done
+- Make blob bounce away if player loses
+- Make blob get beamed up if player wins
 */
-
-
-
-
 
 /* Icebox */
 
@@ -55,6 +52,11 @@ If the user fails to keep any meter from filling up all the way, the blob will g
 - A slide out menu on the left that has ???
 - Blob dances
 */
+
+
+
+
+
 
 const blob = {
   
@@ -91,12 +93,13 @@ const blob = {
     $sleepyNumber.text(`Sleepiness: ${blob.sleepiness}`);
     $sleepyMeter.css("width", `${blob.sleepiness}0%`);
     blob.gameOver();
+    blob.blobAscends();
+
     if (blob.time === 0 && blob.age <= 4) {
       blob.age++;
       blob.time = 30;
       blob.updateAge();
       blob.blobGrow();
-      blob.blobAscends();
     }; 
   },
 
@@ -109,8 +112,18 @@ const blob = {
   meterTimer: null,
 
   startMeters() {
-    this.meterTimer = setInterval(blob.increaseMeters, 1000);
+    this.meterTimer = setInterval(blob.increaseMeters, 2000);
   },
+
+/*   increaseMeterSpeed() {
+  if (blob.age > 0 && blob.age < 3) {
+      console.warn("Increasing Speed to 1");
+      this.meterTimer = setInterval(blob.increaseMeters, 1000);
+    } else if (blob.age === 4) {
+      console.warn("Increasing Speed to 2");
+      this.meterTimer = setInterval(blob.increaseMeters, 500);
+    }
+  }, */
 
   increaseMeters() { 
     if (blob.hunger < 10 && blob.boredom < 10 && blob.sleepiness < 10) {
@@ -132,10 +145,16 @@ const blob = {
 // When age = 1, blob grows and meters fill faster  
 blobGrow() {
   if (blob.age === 1) {
+    clearInterval(blob.meterTimer);
+    this.meterTimer = setInterval(blob.increaseMeters, 1000);
+    console.log("speed increases");
     console.log("blob grows");
     $theBlob.css("width", "150px");
     $theBlob.css("height", "150px");
   } else if (blob.age === 3) {
+    clearInterval(blob.meterTimer);
+    this.meterTimer = setInterval(blob.increaseMeters, 800);
+    console.log("speed increases again");
     console.log("blow grows again");
     $theBlob.css("width", "200px");
     $theBlob.css("height", "200px");
