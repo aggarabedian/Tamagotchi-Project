@@ -153,7 +153,7 @@ aside {
   padding: 20px;
   margin: 20px;
   background-color: rgb(53, 53, 53);
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 
@@ -189,9 +189,9 @@ aside {
 }
 
 button {
-  padding: 20px;
-  border-radius: 10px;
-  background-color: rgb(41, 156, 160);
+  padding: 20px 40px;
+  border-radius: 5px;
+  background-color: rgb(66, 160, 160);
   font-family: 'Space Mono', monospace;
 }
 
