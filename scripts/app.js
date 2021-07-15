@@ -77,11 +77,14 @@ const blob = {
     blob.startMeters();
   },
 
+
   timer: null,
+
 
   startTimer() {
     this.timer = setInterval(blob.overTime, 1000);
   },
+
 
   overTime() {
     blob.time--;
@@ -103,13 +106,16 @@ const blob = {
     }; 
   },
 
+
   updateAge () {
     $blobAge.text(`Age: ${blob.age}`);
     $blobName.text(`Name: ${blob.name}`);
     $gameClock.text(`Time left this year: ${blob.time}s`);
   },
 
+
   meterTimer: null,
+
 
   startMeters() {
     this.meterTimer = setInterval(blob.increaseMeters, 2000);
@@ -157,6 +163,7 @@ blobGrow() {
   }
 },
 
+
 blobAscends() {
   if (blob.age === 5) {
     console.warn("Beam me up, blobby.");
@@ -165,8 +172,8 @@ blobAscends() {
     $theBlob.css("background-image", "url(/images/ufo.png)");
     $theBlob.css("width", "425px");
     $theBlob.css("height", "425px");
-
-
+    $gameClock.text("THE TRUTH IS OUT THERE");
+    $theBlob.attr("id", "bye-blob")
   }
 },
 
@@ -179,6 +186,7 @@ blobAscends() {
     }
   },
 
+
   playBlob(event) {
     if (blob.boredom < 10 && blob.boredom > 0) {
       blob.boredom--;
@@ -187,6 +195,7 @@ blobAscends() {
     }
   },
 
+
   sleepBlob(event) {
     if (blob.sleepiness < 10 && blob.sleepiness > 0) {
       blob.sleepiness--;
@@ -194,11 +203,9 @@ blobAscends() {
       $sleepyMeter.css("width", `${blob.sleepiness}0%`);
     }
   },
-
-
 };
 
-
+const $byeBlob = $("#bye-blob");
 const $theBlob = $(".blob-box-blob");
 const $blobName = $(".status-bar-name");
 const $blobAge = $(".status-bar-age");

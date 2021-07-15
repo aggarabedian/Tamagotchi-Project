@@ -249,9 +249,22 @@ button {
   display: show;
 }
 
-
+#bye-blob {
+  transform: translateY(-150%);
+  transition: 1s ease-out;
+  -webkit-animation-name: bye-blob;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-direction: alternate;
+  /* -webkit-animation-timing-function: cubic-bezier(0.5, 0.05, 1, 0.5); */
+  -webkit-animation-iteration-count: 1;
+}
 
 @keyframes blob-bounce {
   from { transform: translate3d(0, 0, 0);}
   to { transform: translate3d(0, 50px, 0);}
+}
+
+@keyframes bye-blob {
+  from { transform: translate3d(0, 0, 0);}
+  to { transform: translate3d(0, -1000px, 0);}
 }
