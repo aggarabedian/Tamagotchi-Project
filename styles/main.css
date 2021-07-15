@@ -203,6 +203,7 @@ button {
   background-color: rgb(190, 187, 187);
   text-align: justify;
   padding: 50px;
+  border-radius: 10px;
 }
 
 .modal-overlay {
