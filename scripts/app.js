@@ -139,6 +139,7 @@ const blob = {
       $theBlob.css("background-image", "url(/images/gameover.png)");
       $theBlob.css("width", "200px");
       $theBlob.css("height", "200px");
+      $theBlob.css("-webkit-animation-iteration-count", "1")
     }
   },
 
