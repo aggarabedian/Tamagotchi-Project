@@ -70,11 +70,10 @@ const blob = {
     const $getName = $(".name-select");
     blob.name = $getName.val();
     $modalHide.css("display", "none");
-    $blobAge.text(`Age: ${blob.age}`);
-    $blobName.text(`Name: ${blob.name}`);
-    $gameClock.text(`Time left this year: ${blob.time}s`);
+    blob.updateAge();
     blob.startTimer();
-    blob.startMeters();  
+    blob.startMeters();
+    blob.gameOver();
   },
 
   timer: null,
@@ -85,61 +84,79 @@ const blob = {
 
   overTime() {
     blob.time--;
-    $(".game-clock").text(`Time left this year: ${blob.time}s`);
+    $gameClock.text(`Time left this year: ${blob.time}s`);
     $hungerNumber.text(`Hunger: ${blob.hunger}`);
     $hungerMeter.css("width", `${blob.hunger}0%`);
     $boredNumber.text(`Boredom: ${blob.boredom}`);
     $boredMeter.css("width", `${blob.boredom}0%`);
     $sleepyNumber.text(`Sleepiness: ${blob.sleepiness}`);
     $sleepyMeter.css("width", `${blob.sleepiness}0%`);
-    if (blob.time <= 0) {
+    if (blob.time === 0 && blob.age <= 4) {
       blob.age++;
       blob.time = 30;
-      /* blob.resetRound(); */
-    }
+      blob.updateAge();
+      blob.blobGrowOne();
+      blob.blobAscends();
+    }; 
   },
 
   updateAge () {
-    
+    $blobAge.text(`Age: ${blob.age}`);
+    $blobName.text(`Name: ${blob.name}`);
+    $gameClock.text(`Time left this year: ${blob.time}s`);
   },
 
   meterTimer: null,
 
   startMeters() {
-    this.meterTimer = setInterval(blob.increaseMeters, 1500);
+    this.meterTimer = setInterval(blob.increaseMeters, 1000);
   },
 
   increaseMeters() { 
-    if (blob.hunger === 10 || blob.boredom === 10 || blob.sleepiness === 10) {
-      console.warn("Game Over");
-      clearInterval(blob.startTimer);
-      clearInterval(blob.startMeters);
-    } else if (blob.hunger < 10 && blob.boredom < 10 && blob.sleepiness < 10)
+    if (blob.hunger < 10 && blob.boredom < 10 && blob.sleepiness < 10) {
     blob.boredom++;
     blob.sleepiness++;
     blob.hunger++;
-
+    };
   },
 
-/*   gameOver() {
-      if (blob.hunger === 10 || blob.boredom === 10 || blob.sleepiness === 10) {
-      //game over
+  gameOver() {
+      if (blob.hunger >= 10 || blob.boredom >= 10 || blob.sleepiness >= 10) {
       console.warn("Game Over");
-      clearInterval(blob.startTimer);
-      clearInterval(blob.startMeters);
+      clearInterval(blob.overTime);
+      clearInterval(blob.increaseMeters);
     }
-  }, */
+  },
 
 
 // When age = 1, blob grows and meters fill faster  
-blobGrow1() {
-  
+blobGrowOne() {
+  if (blob.age === 1) {
+    console.log("blob grows");
+    $theBlob.css("width", "150px");
+    $theBlob.css("height", "150px");
+  } else if (blob.age === 3) {
+    console.log("blow grows again");
+    $theBlob.css("width", "200px");
+    $theBlob.css("height", "200px");
+  }
+},
+
+blobAscends() {
+  if (blob.age === 5) {
+    console.warn("You win");
+  }
 },
 
 // When age = 3, blob grows again and meters fill faster still
-blobGrow2() {
+/* blobGrowTwo() {
+  if (blob.age === 3) {
+    console.log("blow grows again");
+    $theBlob.css("width", "200px");
+    $theBlob.css("height", "200px");
+  }
 
-},
+}, */
 
   feedBlob(event) {
     if (blob.hunger < 10 && blob.hunger > 0) {
@@ -168,9 +185,8 @@ blobGrow2() {
 
 };
 
-// blob.startTimer();
 
-
+const $theBlob = $(".blob-box-blob");
 const $blobName = $(".status-bar-name");
 const $blobAge = $(".status-bar-age");
 const $hungerMeter = $(".meter-box-hungry-fill");

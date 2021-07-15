@@ -93,7 +93,7 @@ aside {
 }
 .meter-box-hungry-fill {
   height: 100%;
-  width: 50%;
+  width: 20%;
   background-color: rgba(99, 192, 99, 0.8);
   border-radius: 5px;
 }
@@ -115,7 +115,7 @@ aside {
 
 .meter-box-bored-fill {
   height: 100%;
-  width: 30%;
+  width: 20%;
   background-color: rgba(99, 192, 99, 0.8);
   border-radius: 5px;
 }
@@ -137,7 +137,7 @@ aside {
 
 .meter-box-sleepy-fill {
   height: 100%;
-  width: 30%;
+  width: 20%;
   background-color: rgba(99, 192, 99, 0.8);
   border-radius: 5px;
 }
