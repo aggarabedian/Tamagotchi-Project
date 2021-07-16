@@ -171,7 +171,7 @@ aside {
 .blob-box-blob {
   height: 100px;
   width: 100px;
-  background-image: url("/images/blob0.png");
+  background-image: url("../images/blob0.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;

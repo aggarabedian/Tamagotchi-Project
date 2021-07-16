@@ -136,7 +136,7 @@ const blob = {
       console.warn("Game Over");
       clearInterval(blob.timer);
       clearInterval(blob.meterTimer);
-      $theBlob.css("background-image", "url(/images/gameover.png)");
+      $theBlob.css("background-image", "url(../images/gameover.png)");
       $theBlob.css("width", "200px");
       $theBlob.css("height", "200px");
       $theBlob.css("-webkit-animation-iteration-count", "1")
@@ -152,7 +152,7 @@ blobGrow() {
     console.log("blob grows");
     $theBlob.css("width", "150px");
     $theBlob.css("height", "150px");
-    $theBlob.css("background-image", "url(/images/blob1.png)");
+    $theBlob.css("background-image", "url(../images/blob1.png)");
   } else if (blob.age === 3) {
     clearInterval(blob.meterTimer);
     this.meterTimer = setInterval(blob.increaseMeters, 800);
@@ -160,7 +160,7 @@ blobGrow() {
     console.log("blow grows again");
     $theBlob.css("width", "200px");
     $theBlob.css("height", "200px");
-    $theBlob.css("background-image", "url(/images/blob2.png)");
+    $theBlob.css("background-image", "url(../images/blob2.png)");
   }
 },
 
@@ -170,7 +170,7 @@ blobAscends() {
     console.warn("Beam me up, blobby.");
     clearInterval(blob.timer);
     clearInterval(blob.meterTimer);
-    $theBlob.css("background-image", "url(/images/ufo.png)");
+    $theBlob.css("background-image", "url(../images/ufo.png)");
     $theBlob.css("width", "425px");
     $theBlob.css("height", "425px");
     $gameClock.text("THE TRUTH IS OUT THERE");
